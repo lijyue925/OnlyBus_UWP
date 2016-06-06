@@ -1,0 +1,38 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HA2016N_UWP"
+    x:Class="HA2016N_UWP.DataTemplates">
+
+    <DataTemplate x:Key="TransferBusDataTemplate" x:DataType="local:TransferBus">
+        <Grid Height="100" HorizontalAlignment="Center" Margin="0,5,0,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid Background="#205DA0" Padding="15,15" Margin="0,0,10,0" VerticalAlignment="Center">
+                        <TextBlock FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding BusNo}"></TextBlock>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Grid Background="#EA5514" Padding="5" Margin="0" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+                        <TextBlock FontWeight="Bold" HorizontalAlignment="Left" Text="{Binding ArrivalInfo}"></TextBlock>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center"  Margin="0,5" >
+                    <TextBlock FontSize="16" Text="{Binding StartStop}" HorizontalAlignment="Stretch"></TextBlock>
+                    <TextBlock FontSize="16" Text="{Binding EndStop}" HorizontalAlignment="Stretch"></TextBlock>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+    </DataTemplate>
+</ResourceDictionary>

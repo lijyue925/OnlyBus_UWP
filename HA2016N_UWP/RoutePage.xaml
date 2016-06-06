@@ -1,0 +1,75 @@
+﻿<Page
+    x:Class="HA2016N_UWP.RoutePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HA2016N_UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded" >
+
+    <Grid Background="#2D2D35">
+        <Grid.Resources >
+
+        <Style TargetType="TextBlock" >
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="微軟正黑體"/>
+            <Setter Property="Foreground" Value="#FFFFFF"></Setter>
+        </Style>
+
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="1.2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock Margin="20,0" VerticalAlignment="Bottom">轉乘資訊</TextBlock>
+        </Grid>
+        <Grid Grid.Row="1" Background="#626167" Margin="20,10">
+            <TextBlock x:Name="TransferInfoTextBlock" VerticalAlignment="Center" Margin="10,0">You've got a bug! uhh...</TextBlock>
+        </Grid>
+        <Grid Grid.Row="2" Background="#626167" Margin="20,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="3*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock Margin="10,0" VerticalAlignment="Bottom">需轉乘公車</TextBlock>
+            </Grid>
+            <Grid Grid.Row="1">
+                <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
+                    <StackPanel HorizontalAlignment="Stretch" x:Name="RouteStackPanel" Orientation="Horizontal" Margin="10,0"></StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3" Background="#626167" Margin="20,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.2*"></RowDefinition>
+                <RowDefinition Height="9*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"></ColumnDefinition>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <TextBlock Margin="10,0,10,10" VerticalAlignment="Bottom">轉乘公車資訊</TextBlock>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <TextBlock x:Name="RefreshTextBlock" Margin="10,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16">-1秒後更新</TextBlock>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <ProgressRing x:Name="ProgressRing" Width="100" Height="100"></ProgressRing>
+                <ListView x:Name="BusListView" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,0" ItemsSource="{x:Bind TransferBuses}" ItemTemplate="{StaticResource TransferBusDataTemplate}"></ListView>
+            </Grid>
+            
+        </Grid>
+        <Grid Grid.Row="4">
+            <TextBlock Text="© 2016 Fresh Meat. All rights reserved" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Microsoft JhengHei" FontSize="16" Foreground="#727271" Margin="0,0,0,5"></TextBlock>
+        </Grid>
+    </Grid>
+</Page>
